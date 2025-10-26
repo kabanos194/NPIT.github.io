@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NPIT AI Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.26.0",
+    "react-markdown": "https://esm.sh/react-markdown@9.0.1",
+    "remark-gfm": "https://esm.sh/remark-gfm@4.0.0",
+    "jspdf": "https://esm.sh/jspdf@2.5.1",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1"
+  }
+}
+</script>
+<style>
+  @media print {
+    /* When a quiz modal is open, remove layout constraints from the main app container.
+       This is crucial to prevent the printable content from being clipped. */
+    body.quiz-modal-open main {
+      overflow: visible !important;
+    }
+
+    /* Hide everything by default. */
+    body * {
+      visibility: hidden;
+    }
+    
+    /* Make only the printable quiz area and its children visible. */
+    .printable-quiz, .printable-quiz * {
+      visibility: visible;
+    }
+    
+    /* Position the printable content at the top of the page, breaking it out of the modal's layout. */
+    .printable-quiz {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    
+    /* Hide elements specifically marked not for printing (like buttons). */
+    .no-print {
+      display: none !important;
+    }
+    
+    /* Ensure the answer key starts on a new page when printed. */
+    .page-break {
+        page-break-before: always;
+    }
+  }
+</style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

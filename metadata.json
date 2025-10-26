@@ -1,0 +1,7 @@
+{
+  "name": "NPIT",
+  "description": "An advanced AI application featuring text chat, voice conversations, and image generation with the funny and educational NPIT AI.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
